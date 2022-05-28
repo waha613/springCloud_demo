@@ -20,6 +20,7 @@
     <module>cloud-consumerzk-order80</module>
       <module>cloud-provider-payment8006</module>
     <module>cloud-consumerconsul-order80</module>
+      <module>cloud-consumer-feign-order80</module>
   </modules>
 
   <name>Maven</name>
@@ -113,6 +114,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.3.0.RELEASE</version>
         <configuration>
           <fork>true</fork>
           <addResources>true</addResources>
