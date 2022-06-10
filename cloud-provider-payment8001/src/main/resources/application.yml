@@ -10,6 +10,13 @@ spring:
     url: jdbc:mysql://localhost:3306/springclouddemo?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password:
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      #采样率值介于 0 到 1 之间，1 则表示全部采集
+      probability: 1
+
 
 eureka:
   client:
@@ -21,12 +28,12 @@ eureka:
       #      defaultZone: http://localhost:7001/eureka   单机版
       defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
   instance:
-      instance-id: payment8001
-      prefer-ip-address: true     #访问路径可以显示IP地址
-      #Eureka客户端向服务端发送心跳的时间间隔，单位为秒(默认是30秒)
-      lease-renewal-interval-in-seconds: 1
-      #Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒(默认是90秒)，超时将剔除服务
-      lease-expiration-duration-in-seconds: 2
+    instance-id: payment8001
+    prefer-ip-address: true     #访问路径可以显示IP地址
+    #Eureka客户端向服务端发送心跳的时间间隔，单位为秒(默认是30秒)
+    lease-renewal-interval-in-seconds: 1
+    #Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒(默认是90秒)，超时将剔除服务
+    lease-expiration-duration-in-seconds: 2
 
 mybatis:
   mapperLocations: classpath:mapper/*.xml
