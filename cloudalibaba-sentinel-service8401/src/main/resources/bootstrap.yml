@@ -1,0 +1,10 @@
+#spring:
+#  profiles:
+#    local
+
+apollo:
+  bootstrap:
+    enabled: true
+    eagerLoad:
+      enabled: true
+    namespaces: application

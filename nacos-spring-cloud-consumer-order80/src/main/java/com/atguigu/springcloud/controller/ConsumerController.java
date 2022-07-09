@@ -26,8 +26,15 @@ public class ConsumerController {
     private DiscoveryClient discoveryClient;
 
     @GetMapping(value = "/payment/get/{id}")
-    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
-        return consumerService.getPaymentById(id);
+    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) throws InterruptedException {
+        //return consumerService.getPaymentById(id);
+        Thread.sleep(1000);
+        return new CommonResult<>(200,"hahahah");
+    }
+
+    @GetMapping(value = "/degradeTest")
+    public String degradeTest(){
+        return "degradeTest";
     }
 
     @GetMapping(value = "/payment/discovery")
