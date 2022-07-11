@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSON;
 import com.atguigu.springcloud.entities.CommonResult;
 import com.atguigu.springcloud.entities.Payment;
 import com.atguigu.springcloud.service.ConsumerService;
+import com.atguigu.springcloud.service.EchoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -24,6 +25,10 @@ import java.util.List;
 public class ConsumerController {
     @Autowired
     private ConsumerService consumerService;
+
+    @Autowired
+    private EchoService echoService;
+
 
     @Autowired
     private DiscoveryClient discoveryClient;
@@ -57,5 +62,10 @@ public class ConsumerController {
             log.info("isSecure:{}",instance.isSecure());
         }
         return ""+instances.size() ;
+    }
+
+    @GetMapping(value = "/feignTest")
+    public String feignTest(){
+        return echoService.echo("111");
     }
 }

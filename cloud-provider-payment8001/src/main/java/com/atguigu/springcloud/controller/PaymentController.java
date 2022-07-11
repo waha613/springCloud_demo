@@ -39,14 +39,22 @@ public class PaymentController {
 
     @GetMapping(value = "payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
-        Payment payment = paymentService.getPaymentById(id);
-        log.info("*******查询结果：" + payment);
-
-        if(payment != null){
-            return new CommonResult(200,"success,serverPort:" + serverPort,payment);
-        }else {
-            return new CommonResult<Payment>(444,"未找到此id对应的信息,serverPort:" + serverPort,null);
-        }
+//        Payment payment = paymentService.getPaymentById(id);
+//        log.info("*******查询结果：" + payment);
+//
+//        if(payment != null){
+//            return new CommonResult(200,"success,serverPort:" + serverPort,payment);
+//        }else {
+//            return new CommonResult<Payment>(444,"未找到此id对应的信息,serverPort:" + serverPort,null);
+//        }
+        Payment payment = new Payment();
+        payment.setId(1L);
+        payment.setSerial("2");
+        CommonResult<Payment> paymentCommonResult = new CommonResult<>();
+        paymentCommonResult.setData(payment);
+        paymentCommonResult.setCode(200);
+        paymentCommonResult.setMessage("成功");
+        return paymentCommonResult;
     }
 
     @GetMapping(value = "payment/discovery")

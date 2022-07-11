@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
+import java.util.Comparator;
 import java.util.List;
 
 @RestController
@@ -24,8 +25,10 @@ public class OrderController {
     private PaymentFeignService paymentFeignService;
 
     @GetMapping(value = "/payment/get/{id}")
-    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
-       return paymentFeignService.getPaymentById(id);
+    public CommonResult<Test1> getPaymentById(@PathVariable("id") Long id){
+       return (CommonResult<Test1>)paymentFeignService.getPaymentById(id);
+
+
     }
 
 }
