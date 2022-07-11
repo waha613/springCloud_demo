@@ -17,10 +17,10 @@ public class FlowLimitController
 {
 
     @GetMapping("/testA")
-    public String testA()  {
+    public String testA() throws InterruptedException {
 
         System.out.println("hello");
-
+        Thread.sleep(3000);
         return "------testA";
     }
 
@@ -37,5 +37,13 @@ public class FlowLimitController
 
     public String HandleException(){
         return "hahahahha";
+    }
+
+    @GetMapping("/timeout")
+    public String timeout() throws InterruptedException {
+
+        Thread.sleep(3000);
+
+        return "timeout";
     }
 }
