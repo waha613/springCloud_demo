@@ -61,6 +61,13 @@
             <version>1.8.4</version>
         </dependency>
 
+        <!--Sentinel 注解定义资源的支持-->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId> sentinel-parameter-flow-control</artifactId>
+            <version>1.8.4</version>
+        </dependency>
+
 <!--        sentinel整合apollo-->
         <dependency>
             <groupId>com.alibaba.csp</groupId>
